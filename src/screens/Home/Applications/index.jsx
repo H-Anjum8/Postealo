@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const IntroductionScreen = () => {
+const Applications = () => {
   return (
     <View>
-      <Text>IntroductionScreen</Text>
+      <Text>Applications</Text>
     </View>
   );
 };
 
-export default IntroductionScreen;
+export default Applications;
 
 const styles = StyleSheet.create({});

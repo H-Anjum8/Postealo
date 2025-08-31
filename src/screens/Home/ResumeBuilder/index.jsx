@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const IntroductionScreen = () => {
+const ResumeBuilder = () => {
   return (
     <View>
-      <Text>IntroductionScreen</Text>
+      <Text>ResumeBuilder</Text>
     </View>
   );
 };
 
-export default IntroductionScreen;
+export default ResumeBuilder;
 
 const styles = StyleSheet.create({});

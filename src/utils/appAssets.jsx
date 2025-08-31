@@ -17,11 +17,11 @@ const images = {
   USER6: require('../assets/user6.png'),
   USER7: require('../assets/user7.png'),
 
-  APPLE: require('../assets/APPLE.png'),
+  APPLE: require('../assets/apple.png'),
   GOOGLE: require('../assets/GOOGLE.png'),
   SPOTIFY: require('../assets/SPOTIFY.png'),
-  FIGMA: require('../assets/Ellipse3.png'),
-  PAYPAL: require('../assets/Ellipse4.png'),
+  FIGMA: require('../assets/FIGMA.png'),
+  PAYPAL: require('../assets/PAYPAL.png'),
   REDDIT: require('../assets/REDDIT.png'),
   PINTEREST: require('../assets/PINTEREST.png'),
 };
