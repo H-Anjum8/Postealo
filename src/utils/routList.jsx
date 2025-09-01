@@ -6,6 +6,12 @@ import Setting from '../screens/Home/Setting';
 import IntroductionScreen from '../screens/IntroductionScreen';
 import SplashScreen from '../screens/SplashScreen';
 import { ICONS } from './appAssets';
+import Signup from '../screens/Auth/Signup';
+import Login from '../screens/Auth/Login';
+import PeronsalInformation from '../screens/Auth/PeronsalInformation';
+import SignupOTPVerify from '../screens/Auth/SignupOTPVerify';
+import UpdateEmail from '../screens/Auth/UpdateEmail';
+import UploadProfileImage from '../screens/Auth/UploadProfileImage';
 
 const Routes = {
   Splash: {
@@ -27,15 +33,34 @@ const Routes = {
     authRequired: false,
   },
 
-  //   Login: {
-  //     name: 'login_screen',
-  //     component: Login,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  Login: {
+    name: 'login_screen',
+    component: Login,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  PeronsalInformation: {
+    name: 'peronsal_information',
+    component: PeronsalInformation,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  UpdateEmail: {
+    name: 'update_email',
+    component: UpdateEmail,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+
   //   ForgotPassword: {
   //     name: 'forgot_password',
   //     component: ForgotPassword,
@@ -72,33 +97,43 @@ const Routes = {
   //     },
   //     authRequired: false,
   //   },
-  //   Signup: {
-  //     name: 'signup',
-  //     component: Signup,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   SignupOTPVerify: {
-  //     name: 'signup_otp_verify',
-  //     component: SignupOTPVerify,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   UploadProfileImage: {
-  //     name: 'upload_profile_image',
-  //     component: UploadProfileImage,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  Signup: {
+    name: 'signup',
+    component: Signup,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  SignupOTPVerify: {
+    name: 'signup_otp_verify',
+    component: SignupOTPVerify,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  UploadProfileImage: {
+    name: 'upload_profile_image',
+    component: UploadProfileImage,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  HomeScreen: {
+    name: 'home_screen',
+    component: HomeScreen,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+
   //   SignupDone: {
   //     name: 'signup_done',
   //     component: SignupDone,

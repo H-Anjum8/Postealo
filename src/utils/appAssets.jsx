@@ -1,8 +1,8 @@
 const images = {
-  SPLASH_SCREEN: require('../assets/LOGO.png'),
+  LOGO: require('../assets/LOGO.png'),
   SPLASH1: require('../assets/SPLASH1.png'),
-  SPLASH2: require('../assets/SPLASH1.png'),
-  SPLASH3: require('../assets/SPLASH1.png'),
+  SPLASH2: require('../assets/SPLASH2.png'),
+  SPLASH3: require('../assets/SPLASH3.png'),
   PHOTO: require('../assets/PHOTO.png'),
 
   UPLOADER: require('../assets/UPLOADER.png'),
