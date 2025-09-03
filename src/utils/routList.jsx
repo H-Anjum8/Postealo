@@ -12,6 +12,11 @@ import PeronsalInformation from '../screens/Auth/PeronsalInformation';
 import SignupOTPVerify from '../screens/Auth/SignupOTPVerify';
 import UpdateEmail from '../screens/Auth/UpdateEmail';
 import UploadProfileImage from '../screens/Auth/UploadProfileImage';
+import Home from '../screens/Home';
+import BottomNavigation from '../navigation/BottomNavigation';
+import JobDetails from '../screens/Home/JobDetails';
+import ApplyJob from '../screens/Home/ApplyJob';
+import ApplyDone from '../screens/Home/ApplyDone';
 
 const Routes = {
   Splash: {
@@ -124,9 +129,36 @@ const Routes = {
     },
     authRequired: false,
   },
-  HomeScreen: {
-    name: 'home_screen',
-    component: HomeScreen,
+  Dashboard: {
+    name: 'dashboard',
+    component: BottomNavigation,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  JobDetails: {
+    name: 'job_details',
+    component: JobDetails,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  ApplyJob: {
+    name: 'apply-job',
+    component: ApplyJob,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  ApplyDone: {
+    name: 'apply-done',
+    component: ApplyDone,
     options: {
       headerShown: false,
       gestureEnabled: false,
@@ -214,55 +246,57 @@ const Routes = {
 export const BOTTOM_ROUTES = [
   {
     name: 'home',
-    component: HomeScreen,
+    component: Home,
+    icon: ICONS.HOME,
+    label: 'Home',
     options: {
       headerShown: false,
       gestureEnabled: false,
     },
-    icon: ICONS.HOME,
-    label: 'Home',
   },
 
   {
     name: 'applications',
     component: Applications,
+    icon: ICONS.APPLICATION,
+    label: 'Applications',
     options: {
       headerShown: false,
       gestureEnabled: false,
     },
-    icon: ICONS.APPLICAATION,
-    label: 'Applications',
   },
 
   {
     name: 'resume_builder',
     component: ResumeBuilder,
+
+    icon: ICONS.RESUME,
+    label: 'Resume Builder',
     options: {
       headerShown: false,
       gestureEnabled: false,
     },
-    icon: ICONS.RESUME,
-    label: 'Resume Builder',
   },
   {
     name: 'message',
     component: Message,
+
+    icon: ICONS.MESSAGES,
+    label: 'Message',
     options: {
       headerShown: false,
       gestureEnabled: false,
     },
-    icon: ICONS.MESSAGES,
-    label: 'Message',
   },
   {
     name: 'setting',
     component: Setting,
+    icon: ICONS.SETTING,
+    label: 'Settings',
     options: {
       headerShown: false,
       gestureEnabled: false,
     },
-    icon: ICONS.SETTING,
-    label: 'Settings',
   },
 ];
 

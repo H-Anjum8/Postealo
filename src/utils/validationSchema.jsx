@@ -32,6 +32,18 @@ export const getValidationSchema = formType => {
           .min(6, 'Minimum 6 characters')
           .required('Password required'),
       });
+    case 'personalInfo':
+      return Yup.object().shape({
+        fullName: Yup.string().required('Full name is required'),
+        phone: Yup.string().required('Phone number is required'),
+        education: Yup.string().required('Education is required'), // 👈 added
+        experience: Yup.string().required('Experience is required'),
+        skills: Yup.string().required('Skills are required'),
+        preferredLocation: Yup.string().required(
+          'Preferred location is required',
+        ),
+      });
+
     case 'emailUpdate':
       return Yup.object().shape({
         email: Yup.string()

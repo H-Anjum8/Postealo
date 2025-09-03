@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   forgotText: {
     fontSize: 12,
-    color: BASE_COLORS.PRIMARY,
+
     alignSelf: 'flex-end',
   },
   errorText: {

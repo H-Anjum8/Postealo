@@ -31,7 +31,7 @@ const icons = {
     ACTIVE: require('../assets/Bottom_icons/home_active.png'),
     INACTIVE: require('../assets/Bottom_icons/home_inactive.png'),
   },
-  APPLICAATION: {
+  APPLICATION: {
     ACTIVE: require('../assets/Bottom_icons/application_active.png'),
     INACTIVE: require('../assets/Bottom_icons/application_inactive.png'),
   },
