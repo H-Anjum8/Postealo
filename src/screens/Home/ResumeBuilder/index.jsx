@@ -39,7 +39,7 @@ const ResumeBuilder = () => {
         {/* Create Resume Button */}
         <CustomButton
           label="Create New Resume"
-          onPress={() => navigation.navigate('select_resume_language')}
+          onPress={() => navigation.navigate('resume_language')}
           style={{ marginHorizontal: 2, marginTop: 20, height: 53 }}
           textStyle={{ fontSize: 14 }}
         />

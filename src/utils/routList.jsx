@@ -27,6 +27,8 @@ import ResetPassword from '../screens/Auth/ForgotPasswordScreens/ResetPassword';
 import EditProfile from '../screens/Home/Setting/EditProfile';
 import ApplicationDetail from '../screens/Home/Applications/ApplicationDetail';
 import ResumeLanguage from '../screens/Home/ResumeBuilder/ResumeLanguage';
+import CreateResume from '../screens/Home/ResumeBuilder/CreateResume';
+import EditResume from '../screens/Home/ResumeBuilder/EditResume';
 
 const Routes = {
   Splash: {
@@ -180,9 +182,27 @@ const Routes = {
   },
 
   // Resume Builder Screens
+  CreateResume: {
+    name: 'create_resume',
+    component: CreateResume,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
   ResumeLanguage: {
     name: 'resume_language',
     component: ResumeLanguage,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  EditResume: {
+    name: 'edit_resume',
+    component: EditResume,
     options: {
       headerShown: false,
       gestureEnabled: false,

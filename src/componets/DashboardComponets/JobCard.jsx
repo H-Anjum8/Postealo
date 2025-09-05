@@ -1,13 +1,17 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import BASE_COLORS from '../../utils/colors';
 
 const JobCard = ({ job }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.jobCard}>
       <View style={styles.cardContainer}>
-        <Image source={job.logo} style={styles.jobLogo} />
+        <View style={styles.imgContainer}>
+          <Image source={job.logo} style={styles.jobLogo} />
+        </View>
+
         <View style={{ flex: 1 }}>
           <Text style={styles.jobTitle}>{job.title}</Text>
           <Text style={styles.company}>{job.company}</Text>
@@ -48,7 +52,25 @@ const styles = StyleSheet.create({
     // shadowOpacity: 0.1,
     // shadowRadius: 4,
   },
-  jobLogo: { width: 40, height: 40, marginRight: 10 },
+  imgContainer: {
+    width: 40,
+    height: 40,
+    marginRight: 10,
+    padding: 10,
+    backgroundColor: '#fff',
+    // elevation: 2,
+    borderColor: BASE_COLORS.BORDER_COLOR,
+    borderWidth: 1,
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  jobLogo: {
+    width: 30,
+    height: 30,
+  },
   jobTitle: { fontWeight: '700', fontSize: 14 },
   company: { fontSize: 12, color: 'gray' },
   badgeRow: {
@@ -56,6 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 6,
+    marginLeft: -18,
   },
   badge: {
     fontSize: 8,

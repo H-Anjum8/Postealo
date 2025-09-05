@@ -20,7 +20,7 @@ const ApplyModal = ({ visible, onClose }) => {
           {/* Buttons */}
           <TouchableOpacity
             style={styles.uploadBtn}
-            onPress={() => navigation.navigate('apply-done')}
+            onPress={() => navigation.navigate('apply-job')}
           >
             <Text style={styles.uploadBtnText}>Upload Resume</Text>
           </TouchableOpacity>
