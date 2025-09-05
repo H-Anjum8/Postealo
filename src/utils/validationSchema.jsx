@@ -102,6 +102,13 @@ export const getValidationSchema = formType => {
           )
           .required('Phone number is required'),
       });
+    case 'uplodoadResume':
+      return Yup.object().shape({
+        fullName: Yup.string().required('Full Name is required'),
+        email: Yup.string()
+          .email('Invalid email')
+          .required('Email is required'),
+      });
 
     default:
       return Yup.object();

@@ -29,6 +29,9 @@ import ApplicationDetail from '../screens/Home/Applications/ApplicationDetail';
 import ResumeLanguage from '../screens/Home/ResumeBuilder/ResumeLanguage';
 import CreateResume from '../screens/Home/ResumeBuilder/CreateResume';
 import EditResume from '../screens/Home/ResumeBuilder/EditResume';
+import SelectResume from '../screens/Home/SelectResume';
+import PdfPreview from '../screens/Home/ResumeBuilder/PdfPreview';
+import ResumePreview from '../screens/Home/ResumeBuilder/ResumePreview';
 
 const Routes = {
   Splash: {
@@ -160,6 +163,16 @@ const Routes = {
     },
     authRequired: false,
   },
+
+  SelectResume: {
+    name: 'select_resume',
+    component: SelectResume,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
   ApplyDone: {
     name: 'apply-done',
     component: ApplyDone,
@@ -200,9 +213,27 @@ const Routes = {
     },
     authRequired: false,
   },
+  PdfPreview: {
+    name: 'pdf_preview',
+    component: PdfPreview,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
   EditResume: {
     name: 'edit_resume',
     component: EditResume,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  ResumePreview: {
+    name: 'resume_preview',
+    component: ResumePreview,
     options: {
       headerShown: false,
       gestureEnabled: false,

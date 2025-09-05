@@ -10,9 +10,10 @@ const DashboardHeader = ({
   onFilterPress,
   onNotificationPress,
   title, // if provided, show title
+  headerStyle,
 }) => {
   return (
-    <View style={styles.headerContainer}>
+    <View style={[styles.headerContainer, headerStyle]}>
       {showSearch ? (
         // CASE 1: Search Header
         <View style={styles.searchWrapper}>
@@ -41,7 +42,7 @@ const DashboardHeader = ({
         >
           <Ionicons
             name="notifications-outline"
-            size={24}
+            size={20}
             color={COLORS.PRIMARY}
           />
         </TouchableOpacity>

@@ -10,11 +10,22 @@ const BottomNavigation = () => {
         headerShown: false,
         tabBarShowLabel: true,
         tabBarActiveTintColor: BASE_COLORS.SECONDARY,
-        tabBarInactiveTintColor: '#8e8e93',
+        tabBarInactiveTintColor: BASE_COLORS.GRAY,
         tabBarStyle: {
-          backgroundColor: '#ffffff',
+          backgroundColor: BASE_COLORS.WHITE,
           borderTopWidth: 0.5,
           borderTopColor: '#ccc',
+
+          height: 90, // 👈 overall tab height
+          paddingBottom: 10, // 👈 padding from bottom
+          paddingTop: 5, // 👈 padding from top
+        },
+        tabBarItemStyle: {
+          paddingVertical: 6, // 👈 controls icon + label padding
+        },
+        tabBarLabelStyle: {
+          fontSize: 7,
+          marginBottom: 10,
         },
       }}
     >

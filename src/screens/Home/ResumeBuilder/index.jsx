@@ -7,6 +7,7 @@ import AuthWrapper from '../../../componets/AuthWrapper';
 import CustomButton from '../../../componets/CustomButton';
 import BASE_COLORS from '../../../utils/colors';
 import { FONTS } from '../../../theme/fonts';
+import DashboardHeader from '../../../componets/DashboardHeader';
 
 const ResumeBuilder = () => {
   const navigation = useNavigation();
@@ -14,19 +15,11 @@ const ResumeBuilder = () => {
   return (
     <AuthWrapper>
       {/* ✅ Header with Notification */}
-      <View style={styles.headerRow}>
-        <Text style={styles.headerTitle}>Resume Builder</Text>
-        <TouchableOpacity
-          style={styles.notificationButton}
-          onPress={() => navigation.navigate('all_notifications_screen')}
-        >
-          <Ionicons
-            name="notifications-outline"
-            size={moderateScale(20)}
-            color={BASE_COLORS.PRIMARY}
-          />
-        </TouchableOpacity>
-      </View>
+      <DashboardHeader
+        title="Resume Builder"
+        headerStyle={{ marginTop: -4, marginBottom: 20 }}
+        onNotificationPress={() => console.log('Notifications clicked')}
+      />
 
       <View style={styles.container}>
         {/* No Resume Message */}

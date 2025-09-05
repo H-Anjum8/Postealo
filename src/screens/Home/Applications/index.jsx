@@ -15,6 +15,7 @@ import AuthWrapper from '../../../componets/AuthWrapper';
 import BASE_COLORS from '../../../utils/colors';
 import { FONTS } from '../../../theme/fonts';
 import { IMAGES } from '../../../utils/appAssets';
+import DashboardHeader from '../../../componets/DashboardHeader';
 
 // Dummy Applications Data
 const applications = [
@@ -22,7 +23,12 @@ const applications = [
     id: '1',
     title: 'UI/UX Designer',
     company: 'Google LLC',
+    location: 'California, United States',
+    salary: '$32k/yr',
+    type: 'Remote',
+    mode: 'Full Time',
     status: 'Application Pending',
+    category: 'Design',
     statusColor: BASE_COLORS.STATUS,
     logo: IMAGES.GOOGLE, // ✅ imported from project
   },
@@ -30,7 +36,12 @@ const applications = [
     id: '2',
     title: 'Software Engineer',
     company: 'Paypal',
+    location: 'California, United States',
+    salary: '$32k/yr',
+    type: 'Remote',
+    mode: 'Full Time',
     status: 'Application Accepted',
+    category: 'Design',
     statusColor: BASE_COLORS.GREEN,
     logo: IMAGES.PAYPAL,
   },
@@ -38,7 +49,12 @@ const applications = [
     id: '3',
     title: 'Application Developer',
     company: 'Figma',
+    location: 'California, United States',
+    salary: '$32k/yr',
+    type: 'Remote',
+    mode: 'Full Time',
     status: 'Application Rejected',
+    category: 'Design',
     statusColor: BASE_COLORS.PRIMARY,
     logo: IMAGES.FIGMA,
   },
@@ -106,19 +122,11 @@ const MyApplicationsScreen = () => {
     <AuthWrapper>
       <View style={styles.container}>
         {/* ✅ Header with Notification */}
-        <View style={styles.headerRow}>
-          <Text style={styles.headerTitle}>My Applications</Text>
-          <TouchableOpacity
-            style={styles.notificationButton}
-            onPress={() => navigation.navigate('all_notifications_screen')}
-          >
-            <Ionicons
-              name="notifications-outline"
-              size={moderateScale(20)}
-              color={BASE_COLORS.PRIMARY}
-            />
-          </TouchableOpacity>
-        </View>
+        <DashboardHeader
+          title="Resume Builder"
+          headerStyle={{ marginTop: -4, marginBottom: 20 }}
+          onNotificationPress={() => console.log('Notifications clicked')}
+        />
 
         {/* ✅ Search Bar */}
         <View style={styles.searchContainer}>
@@ -185,7 +193,7 @@ const styles = StyleSheet.create({
     backgroundColor: BASE_COLORS.WHITE,
     borderRadius: moderateScale(8),
     paddingHorizontal: moderateScale(10),
-    marginBottom: verticalScale(10),
+    marginBottom: verticalScale(16),
   },
   searchInput: {
     flex: 1,
