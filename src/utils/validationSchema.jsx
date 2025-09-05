@@ -43,7 +43,6 @@ export const getValidationSchema = formType => {
           'Preferred location is required',
         ),
       });
-
     case 'emailUpdate':
       return Yup.object().shape({
         email: Yup.string()
@@ -62,6 +61,46 @@ export const getValidationSchema = formType => {
         otp: Yup.string()
           .length(5, 'Enter 5 digit code')
           .required('OTP is required'),
+      });
+    case 'add_email':
+      return Yup.object().shape({
+        email: Yup.string()
+          .transform(value => value.trim()) // Apply trim during validation
+          .matches(emailRegex, 'Invalid email format')
+          .required('Email is required'),
+      });
+    case 'signup_verify_otp':
+      return Yup.object().shape({
+        otp: Yup.array()
+          .of(
+            Yup.string().required(''), // Empty string means no per-digit error
+          )
+          .test('all-filled', 'Please enter all 6 digits', value => {
+            if (!value) return false;
+            return value.every(v => v !== '');
+          }),
+      });
+    case 'newpassword':
+      return Yup.object().shape({
+        password: Yup.string()
+          .min(6, 'Password must be at least 6 characters')
+          .required('Password is required'),
+        confirmPassword: Yup.string()
+          .oneOf([Yup.ref('password'), null], 'Passwords must match')
+          .required('Confirm Password is required'),
+      });
+    case 'personal_information':
+      return Yup.object().shape({
+        name: Yup.string().required('Name is required'),
+        email: Yup.string()
+          .email('Enter a valid email')
+          .required('Email is required'),
+        phone: Yup.string()
+          .matches(
+            /^\d{3}[-–]\d{3}[-–]\d{4}$/,
+            'Phone must be in 111–111–1111 format',
+          )
+          .required('Phone number is required'),
       });
 
     default:

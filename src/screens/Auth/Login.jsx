@@ -32,6 +32,12 @@ const Login = ({ route }) => {
           heading="Login to Your Account"
           headingTextStyle={{
             fontSize: 24,
+            marginTop: 2,
+          }}
+          descriptionTextStyle={{
+            color: BASE_COLORS.SECONDARY_LIGHT,
+
+            marginTop: 6,
           }}
           showWelcomeText={false}
           showDescription={true}
@@ -82,12 +88,12 @@ const Login = ({ route }) => {
                   </TouchableOpacity>
 
                   <CustomButton
-                    label="Login In"
+                    label="Sign In"
                     onPress={handleSubmit}
                     style={{
                       marginHorizontal: 3,
                       marginBottom: 6,
-                      marginTop: 47,
+                      marginTop: 26,
                     }}
                   />
                 </>
@@ -112,8 +118,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-
-    height: 600,
+    marginTop: 48,
+    height: 510,
   },
   errorText: {
     color: BASE_COLORS.TEXT_RED,
@@ -126,8 +132,9 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   forgotText: {
-    fontSize: 12,
+    fontSize: 11,
     color: BASE_COLORS.TEXT_RED,
+    marginTop: -6,
   },
   button: {
     marginTop: 20,

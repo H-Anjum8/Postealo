@@ -54,7 +54,7 @@ const UploadProfileImage = () => {
           leftIcon={<Ionicons name="chevron-back" size={24} color="black" />}
           onLeftPress={() => navigation.goBack()}
           description="Choose from your gallery"
-          username="Upload Profile Photo"
+          heading="Upload Profile Photo"
           usernameTextStyle={{ fontSize: 22, marginTop: 12 }}
           descriptionTextStyle={{
             textAlign: 'left',
@@ -63,13 +63,13 @@ const UploadProfileImage = () => {
           }}
           showWelcomeText={false}
           showDescription={true}
-          showUsername={true}
+          showHeading={true}
         />
 
         {/* Image Preview */}
         <TouchableOpacity onPress={pickImage} style={styles.imageWrapper}>
           <Image
-            source={imageUri ? { uri: imageUri } : IMAGES.DEFAULT_PROFILE}
+            source={imageUri ? { uri: imageUri } : IMAGES.PHOTO}
             style={styles.image}
           />
         </TouchableOpacity>
@@ -83,13 +83,13 @@ const UploadProfileImage = () => {
 
         {/* Continue Button */}
         <CustomButton
-          label="Upload"
+          label="Continue"
           onPress={() => navigation.navigate('login_screen')}
           style={{ marginTop: 25, height: 54 }}
         />
 
         {/* Skip For Now */}
-        <TouchableOpacity onPress={() => navigation.navigate('profile_setup')}>
+        <TouchableOpacity onPress={() => navigation.navigate('login_screen')}>
           <Text style={styles.skipText}>Skip For Now</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 1,
     borderColor: BASE_COLORS.LIGHT_GRAY,
-    marginTop: 0,
+    marginTop: 16,
   },
   image: {
     width: '100%',
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   skipText: {
     textAlign: 'center',
-    color: BASE_COLORS.TEXT_PRIMARY,
+    color: BASE_COLORS.PRIMARY,
     fontWeight: 'semi-bold',
     fontSize: 12,
     fontFamily: FONTS.MEDIUM,

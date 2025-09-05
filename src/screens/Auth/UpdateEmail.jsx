@@ -19,11 +19,16 @@ import CustomButton from '../../componets/CustomButton';
 
 const UpdateEmail = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { type } = route.params || {};
 
   const handleLogin = values => {
-    navigation.navigate('signup_otp_verify');
+    if (type === 'signup_otp_verify') {
+      navigation.navigate('signup_otp_verify');
+    } else {
+      navigation.navigate('verify_otp');
+    }
   };
-
   return (
     <AuthWrapper>
       <KeyboardAvoidingView
@@ -39,46 +44,47 @@ const UpdateEmail = () => {
             textAlign: 'left',
             fontSize: 10,
             paddingHorizontal: 2,
-            marginBottom: 25,
+            marginTop: 10,
           }}
           showWelcomeText={false}
           showDescription={true}
           showHeading={true}
         />
+        <View style={{ marginTop: 20 }}>
+          <Formik
+            initialValues={{ email: '' }}
+            validationSchema={getValidationSchema('emailUpdate')}
+            onSubmit={handleLogin}
+          >
+            {({ handleChange, handleSubmit, values, errors, touched }) => (
+              <>
+                <View
+                  style={{
+                    height: 230,
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <CustomTextInput
+                    placeholder="Enter your email"
+                    iconName="mail-outline"
+                    iconColor={BASE_COLORS.TEXT_RED}
+                    value={values.email}
+                    onChangeText={handleChange('email')}
+                  />
+                  {touched.email && errors.email && (
+                    <Text style={styles.errorText}>{errors.email}</Text>
+                  )}
 
-        <Formik
-          initialValues={{ email: '' }}
-          validationSchema={getValidationSchema('emailUpdate')}
-          onSubmit={handleLogin}
-        >
-          {({ handleChange, handleSubmit, values, errors, touched }) => (
-            <>
-              <View
-                style={{
-                  height: 254,
-                  justifyContent: 'space-between',
-                }}
-              >
-                <CustomTextInput
-                  placeholder="Enter your email"
-                  iconName="mail-outline"
-                  iconColor={BASE_COLORS.TEXT_RED}
-                  value={values.email}
-                  onChangeText={handleChange('email')}
-                />
-                {touched.email && errors.email && (
-                  <Text style={styles.errorText}>{errors.email}</Text>
-                )}
-
-                <CustomButton
-                  label="Submit"
-                  onPress={handleSubmit}
-                  style={{ marginHorizontal: 3 }}
-                />
-              </View>
-            </>
-          )}
-        </Formik>
+                  <CustomButton
+                    label="Submit"
+                    onPress={handleSubmit}
+                    style={{ marginHorizontal: 3 }}
+                  />
+                </View>
+              </>
+            )}
+          </Formik>
+        </View>
       </KeyboardAvoidingView>
     </AuthWrapper>
   );

@@ -206,7 +206,7 @@ const CustomHeader = ({
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#151B28',
+    backgroundColor: BASE_COLORS.LIGHT_GRAY,
     paddingTop: isIOS ? 0 : StatusBar.currentHeight,
   },
   container: {
@@ -245,6 +245,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     borderWidth: 1,
+    borderColor: BASE_COLORS.LIGHT_GRAY,
   },
   headericons: {
     flexDirection: 'row',
@@ -273,7 +274,7 @@ const styles = StyleSheet.create({
   },
   headingText: {
     ...TextStyles.heading1,
-    color: BASE_COLORS.TEXT_PRIMARY,
+    color: BASE_COLORS.BLACK,
     fontFamily: FONTS.MEDIUM,
     fontSize: 28,
     marginTop: 0,
@@ -288,7 +289,7 @@ const styles = StyleSheet.create({
     color: BASE_COLORS.SECONDARY_LIGHT,
     fontFamily: FONTS.REGULAR,
     fontWeight: 400,
-    marginTop: 1,
+    marginTop: 0,
     fontSize: 12,
     marginBottom: 20,
     marginRight: 0,
@@ -303,7 +304,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: BASE_COLORS.TEXT_LIGHT,
+    backgroundColor: BASE_COLORS.LIGHT_GRAY,
   },
 });
 

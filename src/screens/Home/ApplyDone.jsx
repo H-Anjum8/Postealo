@@ -27,7 +27,7 @@ const ApplyDone = () => {
       {/* Continue button */}
       <CustomButton
         label="Back to Home"
-        onPress={() => navigation.navigate('my_bookings')}
+        onPress={() => navigation.navigate('dashboard')}
         style={{
           marginHorizontal: -4,
           marginTop: 60,

@@ -15,7 +15,8 @@ import BASE_COLORS from '../utils/colors';
 import AuthWrapper from '../componets/AuthWrapper';
 const { width } = Dimensions.get('window');
 import { useNavigation } from '@react-navigation/native';
-
+import { FONTS } from '../theme/fonts';
+import Svg, { Circle } from 'react-native-svg';
 // Onboarding data
 const slides = [
   {
@@ -40,7 +41,10 @@ const slides = [
       'Create job listings, view applicants, and make hiring decisions all in one place. Find the best candidates for your team.',
   },
 ];
-
+const CIRCLE_SIZE = 50;
+const STROKE_WIDTH = 3;
+const RADIUS = (CIRCLE_SIZE - STROKE_WIDTH) / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const IntroductionScreen = () => {
   const navigation = useNavigation();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,55 +65,109 @@ const IntroductionScreen = () => {
   };
 
   return (
-    <AuthWrapper>
+    <View style={styles.mainContainer}>
       {/* FlatList for Swiping */}
-      <FlatList
-        data={slides}
-        renderItem={({ item }) => (
-          <View style={styles.slide}>
-            <Image
-              source={item.image}
-              style={styles.image}
-              resizeMode="contain"
-            />
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
-          </View>
-        )}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        bounces={false}
-        keyExtractor={item => item.id}
-        onViewableItemsChanged={viewableItemsChanged}
-        viewabilityConfig={viewConfig}
-        ref={slidesRef}
-      />
+      <View>
+        <FlatList
+          data={slides}
+          renderItem={({ item }) => (
+            <View style={{ alignItems: 'center' }}>
+              {/* Shadow wrapper */}
+              <View style={styles.imageWrapper}>
+                <Image
+                  source={item.image}
+                  style={styles.image}
+                  resizeMode="contain"
+                />
+              </View>
 
-      {/* Bottom Controls */}
-      <View style={styles.footer}>
-        {/* Pagination Dots */}
-        <View style={styles.dotsContainer}>
-          {slides.map((_, index) => (
-            <View
-              key={index}
-              style={[styles.dot, currentIndex === index && styles.activeDot]}
-            />
-          ))}
-        </View>
-
-        {/* Next Button */}
-        <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-          <Ionicons name="arrow-forward" size={24} color="#fff" />
-        </TouchableOpacity>
+              <View style={styles.slide}>
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.description}>{item.description}</Text>
+              </View>
+            </View>
+          )}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          bounces={false}
+          keyExtractor={item => item.id}
+          onViewableItemsChanged={viewableItemsChanged}
+          viewabilityConfig={viewConfig}
+          ref={slidesRef}
+        />
       </View>
-    </AuthWrapper>
+
+      <View>
+        {/* Bottom Controls */}
+        <View style={styles.footer}>
+          {/* Pagination Dots */}
+          <View style={styles.dotsContainer}>
+            {slides.map((_, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => slidesRef.current.scrollToIndex({ index })}
+                activeOpacity={0.7}
+              >
+                <View
+                  style={[
+                    styles.dot,
+                    currentIndex === index && styles.activeDot,
+                  ]}
+                />
+              </TouchableOpacity>
+            ))}
+          </View>
+          {/* Next Button */}
+          <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
+            <Svg
+              height={CIRCLE_SIZE}
+              width={CIRCLE_SIZE}
+              style={styles.progressCircle}
+            >
+              <Circle
+                stroke="#f2f2f2"
+                fill="none"
+                cx={CIRCLE_SIZE / 2}
+                cy={CIRCLE_SIZE / 2}
+                r={RADIUS}
+                strokeWidth={STROKE_WIDTH}
+              />
+              <Circle
+                stroke={BASE_COLORS.PRIMARY}
+                fill="none"
+                cx={CIRCLE_SIZE / 2}
+                cy={CIRCLE_SIZE / 2}
+                r={RADIUS}
+                strokeWidth={STROKE_WIDTH}
+                strokeDasharray={CIRCUMFERENCE}
+                strokeDashoffset={
+                  CIRCUMFERENCE -
+                  (CIRCUMFERENCE * (currentIndex + 1)) / slides.length
+                }
+                strokeLinecap="round"
+              />
+            </Svg>
+
+            {/* 🔴 Inner Red Circle */}
+            <View style={styles.innerCircle}>
+              <Ionicons name="chevron-forward" size={18} color="#fff" />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
   );
 };
 
 export default IntroductionScreen;
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: BASE_COLORS.WHITE,
@@ -119,33 +177,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
   },
+  imageWrapper: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5, // Android shadow
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    backgroundColor: BASE_COLORS.WHITE, // must add for shadow to appear properly
+    marginTop: 0,
+  },
   image: {
-    width: width * 0.8,
-    height: width * 0.7,
-    marginTop: 30,
+    width: 360,
+    height: 260,
+    resizeMode: 'cover',
+    marginTop: 6,
   },
   title: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 20,
     textAlign: 'left',
-    marginTop: 20,
+    marginTop: 45,
+    fontWeight: 600,
+    fontFamily: FONTS.BOLD,
     color: BASE_COLORS.BLACK,
     alignSelf: 'flex-start',
+    letterSpacing: -0.7,
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     textAlign: 'left',
-    marginTop: 10,
-    color: BASE_COLORS.DARK_GRAY,
+    marginTop: 30,
+    color: BASE_COLORS.BLACK,
     alignSelf: 'flex-start',
-    lineHeight: 20,
   },
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 25,
-    marginBottom: 20,
+    marginBottom: 50,
   },
   dotsContainer: {
     flexDirection: 'row',
@@ -165,8 +236,29 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   nextButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: CIRCLE_SIZE,
+    height: CIRCLE_SIZE,
+    borderRadius: CIRCLE_SIZE / 2,
+    position: 'relative',
+  },
+  progressCircle: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  },
+  innerCircle: {
     backgroundColor: BASE_COLORS.PRIMARY,
-    borderRadius: 25,
-    padding: 12,
+    width: CIRCLE_SIZE - 10, // smaller than outer ring
+    height: CIRCLE_SIZE - 10,
+    borderRadius: (CIRCLE_SIZE - 10) / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  nextText: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: 'bold',
   },
 });

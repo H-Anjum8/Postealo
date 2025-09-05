@@ -4,8 +4,8 @@ export const FONTS = {
 
   // Bold variants
   BOLD: 'SFPRODISPLAYBOLD',
-  // Heavy Italic variantss
-
+  // semi Bold variantss
+  SEMI_BOLD: 'SFPRODISPLAYSEMIBOLD',
   // Light variants
   LIGHT_ITALIC: 'SFPRODISPLAYLIGHTITALIC',
 

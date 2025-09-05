@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    height: 56,
     fontSize: 14,
     color: COLORS.TEXT_INPUT_FIELD,
   },

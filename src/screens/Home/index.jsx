@@ -12,6 +12,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { moderateScale } from 'react-native-size-matters';
 import { IMAGES } from '../../utils/appAssets';
 import JobCard from '../../componets/DashboardComponets/JobCard';
+import DashboardHeader from '../../componets/DashboardHeader';
+import BASE_COLORS from '../../utils/colors';
+import AuthWrapper from '../../componets/AuthWrapper';
 const filterCategories = [
   { id: 1, name: 'All' },
   { id: 2, name: 'Design' },
@@ -96,55 +99,58 @@ const Home = () => {
   return (
     <View style={styles.container}>
       {/* Search Bar */}
-      <View style={styles.searchWrapper}>
-        <Ionicons name="search" size={20} color="gray" />
-        <TextInput
-          placeholder="Search for a job or company"
-          style={styles.searchInput}
-        />
-        <Ionicons name="options-outline" size={20} color="gray" />
-      </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Jobs for You */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Jobs for you</Text>
-          <TouchableOpacity>
-            <Text style={styles.seeAll}>See All</Text>
-          </TouchableOpacity>
-        </View>
+      <DashboardHeader
+        showSearch
+        placeholder="Search for a job or company"
+        onSearchChange={text => console.log(text)}
+        onFilterPress={() => console.log('Filter clicked')}
+        onNotificationPress={() => console.log('Notifications clicked')}
+      />
+      <AuthWrapper>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {/* Jobs for You */}
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Jobs for you</Text>
+            <TouchableOpacity>
+              <Text style={styles.seeAll}>See All</Text>
+            </TouchableOpacity>
+          </View>
 
-        {/* jobCompanies */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {jobCompanies.map(item => (
-            <CategoryCard key={item.id} item={item} />
-          ))}
+          {/* jobCompanies */}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {jobCompanies.map(item => (
+              <CategoryCard key={item.id} item={item} />
+            ))}
+          </ScrollView>
+          {/* Filter Categories */}
+          <View style={{ marginTop: 16, marginHorizontal: -10 }}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingHorizontal: 10 }}
+            >
+              {filterCategories.map(item => (
+                <CategoryFilter
+                  key={item.id}
+                  item={item}
+                  isActive={item.name === selectedCategory}
+                  onPress={() => setSelectedCategory(item.name)}
+                />
+              ))}
+            </ScrollView>
+          </View>
+
+          {/* Job Cards */}
+          {filteredJobs.length > 0 ? (
+            filteredJobs.map(job => <JobCard key={job.id} job={job} />)
+          ) : (
+            <Text style={{ textAlign: 'center', marginTop: 20, color: 'gray' }}>
+              No jobs available in this category
+            </Text>
+          )}
         </ScrollView>
-        {/* Filter Categories */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 10 }}
-        >
-          {filterCategories.map(item => (
-            <CategoryFilter
-              key={item.id}
-              item={item}
-              isActive={item.name === selectedCategory}
-              onPress={() => setSelectedCategory(item.name)}
-            />
-          ))}
-        </ScrollView>
-
-        {/* Job Cards */}
-        {filteredJobs.length > 0 ? (
-          filteredJobs.map(job => <JobCard key={job.id} job={job} />)
-        ) : (
-          <Text style={{ textAlign: 'center', marginTop: 20, color: 'gray' }}>
-            No jobs available in this category
-          </Text>
-        )}
-      </ScrollView>
+      </AuthWrapper>
     </View>
   );
 };
@@ -152,7 +158,7 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1 },
 
   searchWrapper: {
     flexDirection: 'row',
@@ -169,43 +175,46 @@ const styles = StyleSheet.create({
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 15,
-    marginTop: 10,
+
+    marginTop: 0,
     marginBottom: 5,
   },
   sectionTitle: { fontSize: 16, fontWeight: '600' },
-  seeAll: { color: 'red', fontSize: 14 },
+  seeAll: { color: BASE_COLORS.GRAY, fontSize: 10 },
 
   categoryCard: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: BASE_COLORS.WHITE,
     padding: 15,
-    borderRadius: 12,
-    margin: 8,
+    borderRadius: 26,
+    marginTop: 12,
+    marginRight: 10,
     alignItems: 'center',
     width: 120,
   },
   categoryLogo: { width: 40, height: 40, marginBottom: 5 },
-  categoryName: { fontWeight: '600', fontSize: 14 },
-  categoryRole: { fontSize: 12, color: 'gray', textAlign: 'center' },
+  categoryName: { fontWeight: '600', fontSize: 14, marginVertical: 6 },
+  categoryRole: { fontSize: 8, color: 'gray', textAlign: 'center' },
 
   filterBtn: {
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: '#ddd',
-    paddingHorizontal: 15,
+    paddingHorizontal: 17,
     paddingVertical: 6,
-    borderRadius: 20,
-    marginRight: 8,
+    borderRadius: 10,
+    marginRight: 14,
+
+    backgroundColor: BASE_COLORS.BORDER_COLOR,
   },
   filterBtnActive: {
-    backgroundColor: 'red',
+    backgroundColor: BASE_COLORS.WHITE,
     borderColor: 'red',
   },
   filterText: {
-    fontSize: 13,
+    fontSize: 11,
     color: 'gray',
   },
   filterTextActive: {
-    color: '#fff',
+    color: BASE_COLORS.PRIMARY,
     fontWeight: '600',
   },
 });

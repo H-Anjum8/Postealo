@@ -1,4 +1,3 @@
-import HomeScreen from '../screens/Home';
 import Applications from '../screens/Home/Applications';
 import Message from '../screens/Home/Message';
 import ResumeBuilder from '../screens/Home/ResumeBuilder';
@@ -17,6 +16,17 @@ import BottomNavigation from '../navigation/BottomNavigation';
 import JobDetails from '../screens/Home/JobDetails';
 import ApplyJob from '../screens/Home/ApplyJob';
 import ApplyDone from '../screens/Home/ApplyDone';
+import ForgotPassword from '../screens/Auth/ForgotPasswordScreens/ForgotPassword';
+import VerifyOTP from '../screens/Auth/ForgotPasswordScreens/VerifyOTP';
+import ChatScreen from '../screens/Home/Message/ChatScreen';
+import PersonalInformation from '../screens/Home/Setting/PersonalInformation';
+import ChangePassword from '../screens/Home/Setting/ChangePassword';
+import PrivacyPolicy from '../screens/Home/Setting/PrivacyPolicy';
+import TermsAndConditions from '../screens/Home/Setting/TermsAndConditions';
+import ResetPassword from '../screens/Auth/ForgotPasswordScreens/ResetPassword';
+import EditProfile from '../screens/Home/Setting/EditProfile';
+import ApplicationDetail from '../screens/Home/Applications/ApplicationDetail';
+import ResumeLanguage from '../screens/Home/ResumeBuilder/ResumeLanguage';
 
 const Routes = {
   Splash: {
@@ -66,42 +76,34 @@ const Routes = {
     authRequired: false,
   },
 
-  //   ForgotPassword: {
-  //     name: 'forgot_password',
-  //     component: ForgotPassword,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   VerifyOTP: {
-  //     name: 'verify_otp',
-  //     component: VerifyOTP,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   NewPassword: {
-  //     name: 'new_password',
-  //     component: NewPassword,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   ResetPasswordSuccess: {
-  //     name: 'reset_pass_success',
-  //     component: ResetPasswordSuccess,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  ForgotPassword: {
+    name: 'forgot_password',
+    component: ForgotPassword,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  VerifyOTP: {
+    name: 'verify_otp',
+    component: VerifyOTP,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  ResetPassword: {
+    name: 'reset_password',
+    component: ResetPassword,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+
   Signup: {
     name: 'signup',
     component: Signup,
@@ -166,81 +168,95 @@ const Routes = {
     authRequired: false,
   },
 
-  //   SignupDone: {
-  //     name: 'signup_done',
-  //     component: SignupDone,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   Dashboard: {
-  //     name: 'dashboard',
-  //     component: BottomNavigation,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  // applications Screens
+  ApplicationDetail: {
+    name: 'application_detail',
+    component: ApplicationDetail,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+
+  // Resume Builder Screens
+  ResumeLanguage: {
+    name: 'resume_language',
+    component: ResumeLanguage,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+
+  // Messages screens
+  ChatScreen: {
+    name: 'chat_screen',
+    component: ChatScreen,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
 
   // Setting screens
-  //   ChangePassword: {
-  //     name: 'change_password',
-  //     component: ChangePassword,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   PrivacyPolicy: {
-  //     name: 'privacy_policy',
-  //     component: PrivacyPolicy,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   TermsAndConditions: {
-  //     name: 'terms_and_conditions',
-  //     component: TermsAndConditions,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   PersonalInformation: {
-  //     name: 'personal_information',
-  //     component: PersonalInformation,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
-  //   EditProfile: {
-  //     name: 'edit_profile',
-  //     component: EditProfile,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  setting: {
+    name: 'setting',
+    component: Setting,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  PersonalInformation: {
+    name: 'personal_information',
+    component: PersonalInformation,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  ChangePassword: {
+    name: 'change_password',
+    component: ChangePassword,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  PrivacyPolicy: {
+    name: 'privacy_policy',
+    component: PrivacyPolicy,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
+  TermsAndConditions: {
+    name: 'terms_and_conditions',
+    component: TermsAndConditions,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
 
-  //   setting: {
-  //     name: 'setting',
-  //     component: Setting,
-  //     options: {
-  //       headerShown: false,
-  //       gestureEnabled: false,
-  //     },
-  //     authRequired: false,
-  //   },
+  EditProfile: {
+    name: 'edit_profile',
+    component: EditProfile,
+    options: {
+      headerShown: false,
+      gestureEnabled: false,
+    },
+    authRequired: false,
+  },
 };
 
 export const BOTTOM_ROUTES = [

@@ -8,7 +8,8 @@ export const BASE_COLORS = {
   SECONDARY: '#000000',
   SECONDARY_DARK: '#1E1E1E',
   SECONDARY_LIGHT: '#6C6C6C ',
-
+  TRANSPARENT: 'transparent',
+  TEXT_INVERSE: '#FFFFFF',
   DARK_GRAY: '#333333',
   WHITE: '#FFFFFF',
   BG_WHITE: '#FAFAFA',
@@ -24,6 +25,7 @@ export const BASE_COLORS = {
   BG_CHAT: '#F9E3E5',
   ARROW: '#EC1C24',
   LIGHT_RED: '#EF0B0B',
+  BACKGROUND_COLOR: '#F7F7F7',
 
   // Neutrals
 

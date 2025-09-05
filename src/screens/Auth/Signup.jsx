@@ -36,6 +36,10 @@ const Signup = () => {
           headingTextStyle={{
             fontSize: 24,
           }}
+          descriptionTextStyle={{
+            color: BASE_COLORS.SECONDARY_LIGHT,
+            marginTop: 6,
+          }}
           showWelcomeText={false}
           showDescription={true}
           showHeading={true}
@@ -83,12 +87,12 @@ const Signup = () => {
                   </TouchableOpacity>
 
                   <CustomButton
-                    label="Login"
+                    label="Sign Up"
                     onPress={handleSubmit}
                     style={{
                       marginHorizontal: 3,
                       marginBottom: 6,
-                      marginTop: 47,
+                      marginTop: 50,
                     }}
                   />
                 </>
@@ -97,11 +101,11 @@ const Signup = () => {
           </View>
 
           <View style={styles.signupContainer}>
-            <Text style={styles.footerText}>Have an account?</Text>
+            <Text style={styles.footerText}>Already have an account?</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate('login_screen')}
             >
-              <Text style={styles.signupText}> Login</Text>
+              <Text style={styles.signupText}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -116,23 +120,19 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-
-    height: 600,
+    marginTop: 50,
+    height: 510,
   },
   footerText: {
     textAlign: 'center',
     fontWeight: '400',
     fontSize: 15,
     fontFamily: FONTS.REGULAR,
-    color: BASE_COLORS.PRIMARY,
   },
-  signupText: {
-    color: BASE_COLORS.PRIMARY,
-    fontFamily: 'Poppins_600SemiBold',
-  },
+
   forgotText: {
     fontSize: 12,
-
+    marginTop: -6,
     alignSelf: 'flex-end',
   },
   errorText: {
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_600SemiBold',
   },
   signupText: {
-    color: BASE_COLORS.TEXT_RED,
+    color: BASE_COLORS.PRIMARY,
     fontFamily: FONTS.MEDIUM,
   },
   signupContainer: {

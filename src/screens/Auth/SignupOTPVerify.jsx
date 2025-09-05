@@ -61,11 +61,11 @@ const VerifyOTP = () => {
               showDescription={true}
               showHeading={true}
               heading="Email Verification"
-              description="Enter the 6-digit code sent to your email/phone"
+              description="We've sent a verification code to the email megan804@gmail.com"
               descriptionTextStyle={{
                 textAlign: 'left',
                 fontSize: 11,
-                marginTop: 2,
+                marginTop: 4,
               }}
               headingTextStyle={{
                 textAlign: 'left',
@@ -76,51 +76,61 @@ const VerifyOTP = () => {
               }
               contentContainerStyle={{ alignItems: 'flex-start' }}
             />
+            <View style={styles.mainContainer}>
+              {/* 5 Digit Code Boxes */}
+              <View>
+                <View style={styles.codeContainer}>
+                  {values.otp.map((digit, index) => (
+                    <TextInput
+                      key={index}
+                      ref={el => (inputs.current[index] = el)}
+                      style={[
+                        styles.codeInput,
+                        digit !== '' && {
+                          backgroundColor: BASE_COLORS.PRIMARY,
+                        },
+                      ]}
+                      keyboardType="number-pad"
+                      maxLength={1}
+                      value={digit}
+                      onChangeText={text =>
+                        handleChangeDigit(text, index, values, setFieldValue)
+                      }
+                    />
+                  ))}
+                </View>
+                {errors.otp && touched.otp && (
+                  <Text style={styles.errorText}>{errors.otp}</Text>
+                )}
+                <Text style={styles.phoneMessage}>Resend Code</Text>
+              </View>
+              <View style={styles.btnConatiner}>
+                <CustomButton
+                  label="Submit"
+                  onPress={handleSubmit}
+                  style={{
+                    marginHorizontal: 0,
 
-            {/* 5 Digit Code Boxes */}
-            <View style={styles.codeContainer}>
-              {values.otp.map((digit, index) => (
-                <TextInput
-                  key={index}
-                  ref={el => (inputs.current[index] = el)}
-                  style={[
-                    styles.codeInput,
-                    digit !== '' && { backgroundColor: BASE_COLORS.PRIMARY },
-                  ]}
-                  keyboardType="number-pad"
-                  maxLength={1}
-                  value={digit}
-                  onChangeText={text =>
-                    handleChangeDigit(text, index, values, setFieldValue)
-                  }
+                    marginBottom: 0,
+                    height: 54,
+                  }}
                 />
-              ))}
+
+                <Text style={styles.resendText}>
+                  Didn't receive the email? Check your spam filter or try {'\n'}
+                  <Text
+                    style={styles.resendLink}
+                    onPress={() =>
+                      navigation.navigate('update_email', {
+                        type: 'signup_otp_verify',
+                      })
+                    }
+                  >
+                    another email address.
+                  </Text>
+                </Text>
+              </View>
             </View>
-            {errors.otp && touched.otp && (
-              <Text style={styles.errorText}>{errors.otp}</Text>
-            )}
-            <Text style={styles.phoneMessage}>Resend Code</Text>
-
-            <CustomButton
-              label="Submit"
-              onPress={handleSubmit}
-              style={{
-                marginHorizontal: 3,
-                marginTop: 70,
-                marginBottom: 0,
-                height: 54,
-              }}
-            />
-
-            <Text style={styles.resendText}>
-              Didn't receive the email? Check your spam filter or try {'\n'}
-              <Text
-                style={styles.resendLink}
-                onPress={() => navigation.navigate('update_email')}
-              >
-                another email address.
-              </Text>
-            </Text>
           </KeyboardAvoidingView>
         </AuthWrapper>
       )}
@@ -131,21 +141,27 @@ const VerifyOTP = () => {
 export default VerifyOTP;
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: 290,
+  },
   codeContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: moderateScale(5),
-    marginTop: 38,
+    marginHorizontal: moderateScale(10),
+    marginTop: 32,
   },
   codeInput: {
     width: moderateScale(70),
-    height: moderateScale(49),
+    height: moderateScale(42),
     borderWidth: 1,
-    borderColor: BASE_COLORS.PRIMARY,
-
-    borderRadius: 10,
+    borderColor: BASE_COLORS.GRAY,
+    borderRadius: 6,
     textAlign: 'center',
-    fontSize: moderateScale(20),
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: moderateScale(18),
     color: BASE_COLORS.WHITE,
   },
   phoneMessage: {
@@ -162,7 +178,7 @@ const styles = StyleSheet.create({
   resendText: {
     textAlign: 'left',
     marginHorizontal: 4,
-    marginTop: verticalScale(13),
+    marginTop: verticalScale(4),
     fontSize: moderateScale(10),
     color: BASE_COLORS.TEXT_GRAY,
     fontFamily: FONTS.REGULAR,
@@ -176,8 +192,10 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.REGULAR,
   },
   resendLink: {
-    color: BASE_COLORS.SECONDARY,
+    color: BASE_COLORS.BLACK,
     fontFamily: FONTS.REGULAR,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   errorText: {
     color: 'red',
