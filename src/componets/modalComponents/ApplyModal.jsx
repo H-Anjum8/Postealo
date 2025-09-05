@@ -1,6 +1,6 @@
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import BASE_COLORS from '../../utils/colors';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const ApplyModal = ({ visible, onClose }) => {
   const navigation = useNavigation();
@@ -12,7 +12,6 @@ const ApplyModal = ({ visible, onClose }) => {
       onRequestClose={onClose}
     >
       <View style={styles.modalOverlay}>
-        {/* Bottom Sheet */}
         <View style={styles.bottomSheet}>
           {/* Title */}
           <Text style={styles.modalTitle}>Apply Job</Text>
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   resumeBuilderBtn: {
-    backgroundColor: '#ffe6e6',
+    backgroundColor: BASE_COLORS.BG_CHAT,
     paddingVertical: 12,
     borderRadius: 10,
     width: '100%',

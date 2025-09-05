@@ -9,7 +9,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import CustomHeader from '../../../componets/CustomHeaders';
 import CustomButton from '../../../componets/CustomButton';
 import CustomTextInput from '../../../componets/CustomTextInput';

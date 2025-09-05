@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import BASE_COLORS from '../../utils/colors';
 
 const CustomDropdown = ({
   placeholder,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 8,
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalBox: {
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     borderRadius: 8,
     padding: 15,
   },

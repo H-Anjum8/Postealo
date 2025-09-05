@@ -19,31 +19,14 @@ import { FONTS } from '../../../theme/fonts';
 import { moderateScale, verticalScale } from 'react-native-size-matters';
 import CustomHeader from '../../../componets/CustomHeaders';
 import { launchImageLibrary } from 'react-native-image-picker';
+import { mesgData } from '../../../utils/staticData';
 
 const ChatScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { name, image } = route.params || {};
-  const [messages, setMessages] = useState([
-    { id: 1, text: 'Lorem ipsum dolor sit amet consectetur.', type: 'sent' },
-    {
-      id: 2,
-      text: 'Lorem ipsum dolor sit amet consectetur.',
-      type: 'received',
-    },
-    { id: 3, text: 'Lorem ipsum dolor sit amet consectetur.', type: 'sent' },
-    {
-      id: 4,
-      text: 'Lorem ipsum dolor sit amet consectetur.',
-      type: 'received',
-    },
-    { id: 5, text: 'Lorem ipsum dolor sit amet consectetur.', type: 'sent' },
-    {
-      id: 6,
-      text: 'Lorem ipsum dolor sit amet consectetur.',
-      type: 'received',
-    },
-  ]);
+
+  const [messages, setMessages] = useState(mesgData);
   const [inputText, setInputText] = useState('');
 
   // send message handler

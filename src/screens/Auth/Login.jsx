@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     height: 510,
   },
   errorText: {
-    color: BASE_COLORS.TEXT_RED,
+    color: BASE_COLORS.PRIMARY,
     fontSize: 12,
     marginBottom: 12,
     marginTop: -4,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   forgotText: {
     fontSize: 11,
-    color: BASE_COLORS.TEXT_RED,
+    color: BASE_COLORS.BLACK,
     marginTop: -6,
   },
   button: {

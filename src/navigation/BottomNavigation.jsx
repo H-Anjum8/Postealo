@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BOTTOM_ROUTES } from '../utils/routlist';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import BASE_COLORS from '../utils/colors';
 const Tab = createBottomTabNavigator();
 const BottomNavigation = () => {
@@ -12,16 +12,20 @@ const BottomNavigation = () => {
         tabBarActiveTintColor: BASE_COLORS.SECONDARY,
         tabBarInactiveTintColor: BASE_COLORS.GRAY,
         tabBarStyle: {
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          position: 'absolute',
+          overflow: 'hidden',
           backgroundColor: BASE_COLORS.WHITE,
           borderTopWidth: 0.5,
-          borderTopColor: '#ccc',
-
-          height: 90, // 👈 overall tab height
-          paddingBottom: 10, // 👈 padding from bottom
-          paddingTop: 5, // 👈 padding from top
+          borderTopColor: BASE_COLORS.BORDER_COLOR,
+          height: 70,
+          paddingBottom: 10,
+          // marginTop: 5,
         },
+
         tabBarItemStyle: {
-          paddingVertical: 6, // 👈 controls icon + label padding
+          paddingTop: -20,
         },
         tabBarLabelStyle: {
           fontSize: 7,
@@ -38,11 +42,22 @@ const BottomNavigation = () => {
             ...route.options,
             tabBarLabel: route.label || route.name,
             tabBarIcon: ({ focused, color, size }) => (
-              <Image
-                source={focused ? route.icon.ACTIVE : route.icon.INACTIVE}
-                style={{ width: 24, height: 24 }}
-                resizeMode="contain"
-              />
+              <View
+                style={{
+                  borderTopWidth: focused ? 3 : 0, // 👈 added
+                  borderTopColor: focused ? BASE_COLORS.PRIMARY : 'transparent', // 👈 added
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                  paddingTop: 5,
+                  width: '100%',
+                }}
+              >
+                <Image
+                  source={focused ? route.icon.ACTIVE : route.icon.INACTIVE}
+                  style={{ width: 24, height: 24 }}
+                  resizeMode="contain"
+                />
+              </View>
             ),
           }}
         />

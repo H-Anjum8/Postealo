@@ -73,16 +73,6 @@ const CreateResume = ({ navigation }) => {
   // ✅ Export PDF (Placeholder)
   const handleExport = () => {
     console.log('Saved Resume:');
-    // navigation.navigate('pdf_preview', {
-    //   resumeData: {
-    //     message,
-    //     experience,
-    //     education,
-    //     certifications,
-    //     skills,
-    //     languages,
-    //   },
-    // });
   };
 
   return (

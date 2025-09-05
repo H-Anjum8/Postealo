@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
   },
   changeText: {
     textAlign: 'center',
-    color: BASE_COLORS.TEXT_TERNARY,
+    color: BASE_COLORS.BLACK,
     fontSize: 12,
     fontFamily: FONTS.MEDIUM,
     marginTop: 10,
   },
   bold: {
     fontFamily: FONTS.MEDIUM,
-    color: BASE_COLORS.TEXT_BLACK,
+    color: BASE_COLORS.BLACK,
     fontSize: 12,
     fontWeight: 'bold',
   },

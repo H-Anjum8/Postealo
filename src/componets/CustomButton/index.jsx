@@ -61,6 +61,15 @@ const styles = StyleSheet.create({
     height: 58,
     marginBottom: 20,
     marginHorizontal: 10,
+
+    // 👇 shadow for iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+
+    // 👇 shadow for Android
+    elevation: 5,
   },
   fullWidth: {
     alignSelf: 'stretch',

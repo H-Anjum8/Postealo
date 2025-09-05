@@ -16,57 +16,7 @@ import BASE_COLORS from '../../../utils/colors';
 import { FONTS } from '../../../theme/fonts';
 import { IMAGES } from '../../../utils/appAssets';
 import DashboardHeader from '../../../componets/DashboardHeader';
-
-// Dummy Applications Data
-const applications = [
-  {
-    id: '1',
-    title: 'UI/UX Designer',
-    company: 'Google LLC',
-    location: 'California, United States',
-    salary: '$32k/yr',
-    type: 'Remote',
-    mode: 'Full Time',
-    status: 'Application Pending',
-    category: 'Design',
-    statusColor: BASE_COLORS.STATUS,
-    logo: IMAGES.GOOGLE, // ✅ imported from project
-  },
-  {
-    id: '2',
-    title: 'Software Engineer',
-    company: 'Paypal',
-    location: 'California, United States',
-    salary: '$32k/yr',
-    type: 'Remote',
-    mode: 'Full Time',
-    status: 'Application Accepted',
-    category: 'Design',
-    statusColor: BASE_COLORS.GREEN,
-    logo: IMAGES.PAYPAL,
-  },
-  {
-    id: '3',
-    title: 'Application Developer',
-    company: 'Figma',
-    location: 'California, United States',
-    salary: '$32k/yr',
-    type: 'Remote',
-    mode: 'Full Time',
-    status: 'Application Rejected',
-    category: 'Design',
-    statusColor: BASE_COLORS.PRIMARY,
-    logo: IMAGES.FIGMA,
-  },
-  {
-    id: '4',
-    title: 'Graphic Designer',
-    company: 'Pinterest',
-    status: 'Application Pending',
-    statusColor: BASE_COLORS.STATUS,
-    logo: IMAGES.PINTEREST,
-  },
-];
+import { applications } from '../../../utils/staticData';
 
 const MyApplicationsScreen = () => {
   const navigation = useNavigation();
@@ -246,7 +196,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   status: {
-    fontFamily: FONTS.medium,
+    fontFamily: FONTS.MEDIUM,
     fontSize: moderateScale(12),
   },
   headerRow: {
@@ -274,7 +224,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     // ✅ Android shadow (elevation)
     elevation: 5,
   },

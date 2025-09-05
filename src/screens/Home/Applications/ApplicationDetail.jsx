@@ -57,7 +57,7 @@ const ApplicationDetail = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     paddingHorizontal: 16,
     marginTop: 4,
     paddingBottom: 30,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 18,
-    color: '#000',
+    color: BASE_COLORS.BLACK,
   },
   logoBox: {
     width: 75,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     alignSelf: 'center',
     padding: 46,
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     // elevation: 2,
     borderColor: BASE_COLORS.BORDER_COLOR,
     borderWidth: 1,

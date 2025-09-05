@@ -168,7 +168,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     color: BASE_COLORS.TEXT_RED,
-    fontFamily: 'Poppins_600SemiBold',
   },
   signupText: {
     color: BASE_COLORS.PRIMARY,

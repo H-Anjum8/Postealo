@@ -41,12 +41,11 @@ const styles = StyleSheet.create({
   jobCard: {
     flexDirection: 'column',
     alignItems: 'center',
-
     gap: 12,
     marginTop: 14,
     padding: 15,
     borderRadius: 20,
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     // elevation: 2,
     // shadowColor: '#000',
     // shadowOpacity: 0.1,
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   jobTitle: { fontWeight: '700', fontSize: 14 },
-  company: { fontSize: 12, color: 'gray' },
+  company: { fontSize: 12, color: BASE_COLORS.GRAY },
   badgeRow: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -84,9 +83,8 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: 'gray',
     padding: 6,
-
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: BASE_COLORS.BORDER_COLOR,
     borderRadius: 6,
     marginRight: 10,
   },

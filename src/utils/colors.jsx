@@ -27,29 +27,11 @@ export const BASE_COLORS = {
   ARROW: '#EC1C24',
   LIGHT_RED: '#EF0B0B',
   BACKGROUND_COLOR: '#F7F7F7',
-
   // Neutrals
-
   BORDER_COLOR: '#EEEEEE',
   TABLE_BACKGROUND: '#FAFAFA',
   BLACK: '#000000',
   WHITE: '#FFFFFF',
-
-  // Common UI colors
-  // TEXT_LIGHTGRAY: '#ADAAAA',
-  // TEXT_PRIMARY: '#000654',
-  // TEXT_SECONDARY: '#2F2F2F',
-  // TEXT_TERNARY: '#333333',
-  // TEXT_LIGHT: '#6C6C6C',
-  // TEXT_INPUT_FIELD: '#858585',
-  // TEXT_GRAY: '#B8B8B8',
-  // TEXT_WHITE: '#FFFFFF',
-  // TEXT_BLACK: '#000000',
-  // TEXT_RED: '#EC1C24',
-  // TEXT_GREEN: '#359814',
-  // DISABLED: '#CCCCCC',
-  // TRANSPARENT: 'transparent',
-  // TEXT_INVERSE: '#FFFFFF',
 };
 
 export default BASE_COLORS;

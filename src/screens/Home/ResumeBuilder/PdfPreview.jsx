@@ -39,15 +39,6 @@ const PdfPreview = () => {
                 color={BASE_COLORS.BLACK}
               />
             </TouchableOpacity>
-            {/* <TouchableOpacity
-              style={styles.iconBtn}
-              onPress={() => navigation.navigate('edit_resume')}
-            >
-              <Ionicons name="create-outline" size={22} color="#555" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="trash-outline" size={22} color="#555" />
-            </TouchableOpacity> */}
           </View>
         </View>
 
@@ -95,7 +86,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   cardLeft: { flexDirection: 'row', alignItems: 'center' },
-  cardText: { marginLeft: 10, fontSize: 16, fontWeight: '500', color: '#000' },
+  cardText: {
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: '500',
+    color: BASE_COLORS.BLACK,
+  },
   iconButton: {
     width: moderateScale(32),
     height: moderateScale(32),
@@ -111,14 +107,14 @@ const styles = StyleSheet.create({
   iconBtn: { marginLeft: 12 },
 
   createBtn: {
-    backgroundColor: '#E30613',
+    backgroundColor: BASE_COLORS.PRIMARY,
     borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
     marginTop: 'auto',
     marginBottom: 70,
   },
-  createBtnText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  createBtnText: { color: BASE_COLORS.WHITE, fontSize: 16, fontWeight: '600' },
 
   bottomNav: {
     flexDirection: 'row',
@@ -131,7 +127,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
   },
   navItem: { alignItems: 'center' },
   navItemActive: { alignItems: 'center' },

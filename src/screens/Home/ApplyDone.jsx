@@ -2,8 +2,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { moderateScale, verticalScale } from 'react-native-size-matters';
 import CustomButton from '../../componets/CustomButton';
-import { ICONS, IMAGES } from '../../utils/appAssets';
-
+import { IMAGES } from '../../utils/appAssets';
 import BASE_COLORS from '../../utils/colors';
 import { FONTS } from '../../theme/fonts';
 

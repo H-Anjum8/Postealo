@@ -100,14 +100,14 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingVertical: 24,
     paddingHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: BASE_COLORS.WHITE,
     justifyContent: 'space-between',
   },
 
   resumeName: {
     flex: 1,
     fontSize: 14,
-    color: '#000',
+    color: BASE_COLORS.BLACK,
     marginHorizontal: 10,
   },
   bottomBtn: {

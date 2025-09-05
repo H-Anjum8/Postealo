@@ -9,7 +9,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import CustomHeader from '../../../componets/CustomHeaders';
 import CustomButton from '../../../componets/CustomButton';
 import CustomTextInput from '../../../componets/CustomTextInput';
@@ -120,7 +119,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     fontFamily: FONTS.REGULAR,
   },
-
   inputGroup: {
     marginTop: 30,
     marginBottom: 16,

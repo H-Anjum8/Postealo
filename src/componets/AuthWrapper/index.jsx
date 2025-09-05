@@ -29,7 +29,6 @@ export default AuthWrapper;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-
     backgroundColor: BASE_COLORS.BACKGROUND_COLOR,
     // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },

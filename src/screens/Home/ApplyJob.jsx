@@ -127,9 +127,6 @@ const ApplyJob = () => {
                   marginTop: 26,
                 }}
               />
-              {/* <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
-                <Text style={styles.submitText}>Submit</Text>
-              </TouchableOpacity> */}
             </>
           )}
         </Formik>
@@ -147,7 +144,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     marginTop: 10,
-    color: '#000',
+    color: BASE_COLORS.BLACK,
   },
   subtitle: {
     fontSize: 14,
@@ -166,11 +163,11 @@ const styles = StyleSheet.create({
   },
   uploadText: {
     fontSize: 14,
-    color: '#555',
+    color: BASE_COLORS.GRAY,
     marginTop: 8,
   },
   submitBtn: {
-    backgroundColor: '#E50914',
+    backgroundColor: BASE_COLORS.PRIMARY,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -178,13 +175,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   submitText: {
-    color: '#fff',
+    color: BASE_COLORS.WHITE,
     fontSize: 16,
     fontWeight: '600',
   },
   errorText: {
     fontSize: 12,
-    color: 'red',
+    color: BASE_COLORS.PRIMARY,
     marginBottom: 8,
     marginLeft: 4,
   },

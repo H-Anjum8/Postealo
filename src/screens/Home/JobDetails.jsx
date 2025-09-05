@@ -135,12 +135,6 @@ const JobDetails = ({ route, navigation }) => {
         ))}
       </View>
 
-      {/* <TouchableOpacity
-        style={styles.applyBtn}
-        onPress={() => setApplyModal(true)}
-      >
-        <Text style={styles.applyText}>Apply</Text>
-      </TouchableOpacity> */}
       <CustomButton
         label="Apply"
         onPress={() => setApplyModal(true)}
